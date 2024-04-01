@@ -18,9 +18,9 @@ python $PATH_PIPELINE_TOOLS/config/copy-files-beta.py ./ ./pr-files/diff-file $P
 
 cd $PROJECT_NAME
 
+echo $DEFAULT_TESTS_PATH
 echo "\n#### Initiate deploy in Organization #####"
 echo "Running source deploy command with parameters -u "$USERNAME" --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG " 
-ls 
 
 DEPLOYMENT_INFO="$(sfdx force:source:deploy --sourcepath ./force-app/main --targetusername "$USERNAME"  --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG  --apiversion '54.0'  --wait 0 --json)"
 echo $DEPLOYMENT_INFO >> ./deployment_info.json
