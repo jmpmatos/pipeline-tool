@@ -17,7 +17,7 @@ echo "Running source deploy command with parameters -u "$USERNAME" --testlevel $
 ls
 echo $(<$DEFAULT_TESTS_PATH) 
 
-DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME" --sourcepath ./force-app --testlevel $TEST_LEVEL $(<$DEFAULT_TESTS_PATH) $CHECK_ONLY_FLAG  --wait 0 --json)"
+DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME" --sourcepath ./force-app --testlevel $TEST_LEVEL --runtests $(<$DEFAULT_TESTS_PATH) $CHECK_ONLY_FLAG  --wait 0 --json)"
 echo $DEPLOYMENT_INFO >> ./deployment_info.json
 echo ./deployment_info.json
 DEPLOYMENT_ID="$(jq -r '.result.id' ./deployment_info.json)" 
