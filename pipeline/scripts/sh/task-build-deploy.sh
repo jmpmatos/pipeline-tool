@@ -13,8 +13,10 @@ cd $REPOSITORY_PATH
 echo "\n#### Initiate deploy in Organization #####"
 echo "Running source deploy command with parameters -u "$USERNAME" --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG " 
 
-DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME" --sourcepath ./force-app --testlevel $TEST_LEVEL --runtests $(<$DEFAULT_TESTS_PATH) $CHECK_ONLY_FLAG  --wait 0 --json)"
-echo $DEPLOYMENT_INFO >> ./deployment_info.json
-echo ./deployment_info.json
-DEPLOYMENT_ID="$(jq -r '.result.id' ./deployment_info.json)" 
-sfdx force:source:deploy:report --wait 60 -i ${DEPLOYMENT_ID} -u "$USERNAME" --verbose 
+sfdx force:source:deploy -u "$USERNAME" --sourcepath ./force-app --testlevel $TEST_LEVEL --runtests $(<$DEFAULT_TESTS_PATH) $CHECK_ONLY_FLAG
+
+# DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME" --sourcepath ./force-app --testlevel $TEST_LEVEL --runtests $(<$DEFAULT_TESTS_PATH) $CHECK_ONLY_FLAG  --wait 0 --json)"
+# echo $DEPLOYMENT_INFO >> ./deployment_info.json
+# echo ./deployment_info.json
+# DEPLOYMENT_ID="$(jq -r '.result.id' ./deployment_info.json)" 
+# sfdx force:source:deploy:report --wait 60 -i ${DEPLOYMENT_ID} -u "$USERNAME" --verbose 
