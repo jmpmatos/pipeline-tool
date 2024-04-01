@@ -15,7 +15,7 @@ cd $REPOSITORY_PATH
 echo "\n#### Initiate deploy in Organization #####"
 echo "Running source deploy command with parameters -u "$USERNAME" --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG " 
 ls 
-DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME"  --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG  --wait 0 --json)"
+DEPLOYMENT_INFO="$(sfdx force:source:deploy -u "$USERNAME"  --sourcepath ./force-app --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG  --wait 0 --json)"
 echo $DEPLOYMENT_INFO >> ./deployment_info.json
 echo ./deployment_info.json
 DEPLOYMENT_ID="$(jq -r '.result.id' ./deployment_info.json)" 
