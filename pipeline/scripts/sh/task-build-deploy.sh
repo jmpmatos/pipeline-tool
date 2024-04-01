@@ -20,3 +20,4 @@ echo $DEPLOYMENT_INFO >> ./deployment_info.json
 echo ./deployment_info.json
 DEPLOYMENT_ID="$(jq -r '.result.id' ./deployment_info.json)" 
 sfdx force:source:deploy:report --wait 60 -i ${DEPLOYMENT_ID} -u "$USERNAME" --verbose 
+ 
