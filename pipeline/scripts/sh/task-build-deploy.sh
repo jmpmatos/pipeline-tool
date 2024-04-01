@@ -20,7 +20,7 @@ cd $REPOSITORY_PATH
 
 echo "\n#### Initiate deploy in Organization #####"
 echo "Running source deploy command with parameters -u "$USERNAME" --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG " 
-
+ls 
 DEPLOYMENT_INFO="$(sfdx force:source:deploy ${CMD_DEPLOY[@]} -u "$USERNAME"  --testlevel $TEST_LEVEL $CHECK_ONLY_FLAG  --wait 0 --json)"
 echo $DEPLOYMENT_INFO >> ./deployment_info.json
 echo ./deployment_info.json
