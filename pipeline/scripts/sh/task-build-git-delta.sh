@@ -3,7 +3,7 @@
 set -e
 
 echo 'y' | ~/sfdx/bin/sfdx plugins:install sfdx-git-delta
-echo 'y' | ~/sfdx/bin/sfdx plugins:install @salesforce/sfdx-scanner
+#echo 'y' | ~/sfdx/bin/sfdx plugins:install @salesforce/sfdx-scanner
 
 
 
